@@ -1,15 +1,17 @@
-package com.rho.books;
+package com.example.zuulserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
-@EnableDiscoveryClient
 @SpringBootApplication
-public class BooksApplication {
+@EnableDiscoveryClient
+@EnableZuulProxy
+public class ZuulServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BooksApplication.class, args);
+		SpringApplication.run(ZuulServerApplication.class, args);
 	}
 
 }

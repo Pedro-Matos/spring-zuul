@@ -3,14 +3,12 @@ package com.rho.books.controller;
 import com.rho.books.bean.Book;
 import com.rho.books.bean.BookType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 
 @RestController
-@RequestMapping("book")
+@RequestMapping()
 public class BookController {
 
     @GetMapping("/")
