@@ -1,23 +1,31 @@
 package com.rho.series.controller;
 
+import com.rho.series.bean.Serie;
 import com.rho.series.service.ISerieService;
-import com.rho.series.bean.NetflixSerie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.List;
 
-@RestController
-@RequestMapping()
+@Controller
 public class SerieController {
+    private final static String BOOKS_VARIABLE = "series";
+    private static final String BOOKS_PAGE = "table";
+
     @Autowired
     private ISerieService serieService;
 
-    @GetMapping("/")
-    public List<NetflixSerie> getBook() {
-        List<NetflixSerie> series = serieService.displayUserContent();
-        return series;
+    @GetMapping(value = "/")
+    public String getSerie(Model model){
+        List<Serie> shows = serieService.displayUserContent();
+        model.addAttribute("series", shows);
+        System.out.println(Arrays.toString(shows.toArray()));
+        System.out.println(model.toString());
+        return "table";
     }
 }
+
