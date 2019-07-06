@@ -1,21 +1,25 @@
 package com.rho.books.controller;
 
 import com.rho.books.bean.Book;
-import com.rho.books.bean.BookType;
+import com.rho.books.service.IBookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 @RestController
 @RequestMapping()
 public class BookController {
+    @Autowired
+    private IBookService bookService;
 
     @GetMapping("/")
-    public Book getBook() {
-        Book book1 = new Book("Steven Erikson", "Gardens of the Moon", BookType.FANTASY, 712);
-
-        return book1;
+    public List<Book> getBook() {
+        List<Book> books = bookService.displayShelf();
+        return books;
     }
 
 
