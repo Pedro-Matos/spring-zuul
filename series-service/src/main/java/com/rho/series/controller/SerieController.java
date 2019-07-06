@@ -1,7 +1,7 @@
-package com.example.series.controller;
+package com.rho.series.controller;
 
-import com.example.series.service.ISerieService;
-import com.example.series.bean.NetflixSerie;
+import com.rho.series.service.ISerieService;
+import com.rho.series.bean.NetflixSerie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

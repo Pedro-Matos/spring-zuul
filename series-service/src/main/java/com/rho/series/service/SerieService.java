@@ -1,6 +1,6 @@
-package com.example.series.service;
+package com.rho.series.service;
 
-import com.example.series.bean.NetflixSerie;
+import com.rho.series.bean.NetflixSerie;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

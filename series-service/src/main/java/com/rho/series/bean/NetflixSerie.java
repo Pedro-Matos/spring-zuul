@@ -1,4 +1,4 @@
-package com.example.series.bean;
+package com.rho.series.bean;
 
 public class NetflixSerie {
     private String name;
