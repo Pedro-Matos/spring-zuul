@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Series</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> List of series </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Seasons </th>
+                    <th> Netflix Original </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${series.empty}">
+                    <td colspan="2"> No series available</td>
+                </tr>
+                <tr th:each="serie : ${series}">
+                    <td><span th:text="${serie.getName()}"> Name </span></td>
+                    <td><span th:text="${serie.getSeasons()}"> Seasons </span></td>
+                    <td><span th:text="${serie.isNetflixOriginal()}"> Netflix Original </span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
