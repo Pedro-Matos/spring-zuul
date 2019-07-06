@@ -6,15 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
 public class SerieController {
-    private final static String BOOKS_VARIABLE = "series";
-    private static final String BOOKS_PAGE = "table";
+    private final static String SERIES_VARIABLE = "series";
+    private static final String SERIES_PAGE = "table";
 
     @Autowired
     private ISerieService serieService;
@@ -22,10 +20,8 @@ public class SerieController {
     @GetMapping(value = "/")
     public String getSerie(Model model){
         List<Serie> shows = serieService.displayUserContent();
-        model.addAttribute("series", shows);
-        System.out.println(Arrays.toString(shows.toArray()));
-        System.out.println(model.toString());
-        return "table";
+        model.addAttribute(SERIES_VARIABLE, shows);
+        return SERIES_PAGE;
     }
 }
 
