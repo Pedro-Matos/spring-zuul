@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rho</groupId>
-	<artifactId>interview</artifactId>
+	<artifactId>eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>interview</name>
-	<description>Demo project for Spring Boot</description>
+	<name>eureka-server</name>
+	<description>Eureka Server for RHO Interview</description>
 
 	<properties>
 		<java.version>1.8</java.version>
