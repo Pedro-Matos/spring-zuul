@@ -66,7 +66,9 @@ To do the full build, do: `mvn clean install` in root dir of the project or do o
 To run a Spring Boot module run the command: `mvn spring-boot:run` in the module directory
 
 # Usage Example
-After building the project, run the spring boot module first in the eureka module, then the zuul module and at last the data provider modules.
+After building the project, use the `run.sh`script to start the project and use the `kill.sh` to stop the project and kill all the PIDs
+
+The zuul proxy can take a couple seconds to discover the routes for the services.
 
 To test the endpoints: 
 - localhost:8200/ - list in tabular format from book service
