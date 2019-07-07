@@ -1,16 +1,42 @@
 package com.rho.zuulserver;
 
+import com.rho.zuulserver.controller.MessageController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@WebMvcTest(MessageController.class)
 public class ZuulServerApplicationTests {
+	@Autowired
+	private MockMvc mvc;
 
 	@Test
-	public void contextLoads() {
+	public void getEndpointStatus() throws Exception {
+		MockHttpServletResponse response = mvc.perform(
+				get("/")
+						.accept(MediaType.APPLICATION_JSON))
+				.andReturn().getResponse();
+
+		assertEquals(200, response.getStatus());
 	}
 
+	@Test
+	public void getBadEndpoint() throws Exception {
+		MockHttpServletResponse response = mvc.perform(
+				get("/api")
+						.accept(MediaType.APPLICATION_JSON))
+				.andReturn().getResponse();
+
+		assertNotEquals(200, response.getStatus());
+	}
 }
