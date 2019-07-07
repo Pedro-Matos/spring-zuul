@@ -77,3 +77,13 @@ To test the endpoints:
 - localhost:8100/book-service – list in tabular format from book service
 - localhost:8100/netflixseries-service – list in tabular format from tv show service
  
+# Problems Found
+During the execution of this exercise I run into the following problem:
+```
+Caused by: java.net.UnknownHostException: nodename nor servname provided, or not known
+```
+My hostname was not being recognized and the services were having problems when the zuul proxy tried to route the requests and couldn't recognize it. 
+The solution is quite simple, it's necessary to add the hostname to the host files: 
+```
+echo "127.0.0.1 $HOSTNAME" | sudo tee -a /etc/hosts
+
